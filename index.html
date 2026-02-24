@@ -13,8 +13,8 @@
 <!-- Three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
 
-<!-- GLTF Loader -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/loaders/GLTFLoader.js"></script>
+<!-- Correct GLTF Loader -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.152.0/examples/js/loaders/GLTFLoader.js"></script>
 
 <script>
     // Scene
@@ -43,6 +43,8 @@
     const loader = new THREE.GLTFLoader();
     loader.load('MX5.glb', function(gltf) {
         scene.add(gltf.scene);
+    }, undefined, function(err) {
+        console.error("MODEL LOAD ERROR:", err);
     });
 
     // Animation loop
